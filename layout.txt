@@ -1,15 +1,16 @@
-//####XX_short_arrays_XX
+// BEGINN : ShortArrays
 short w106[] = {106, 22, 30, 0, 32, 0, 34, 1, 35, 1, 60, 0, 61, 0, 62, 0, 63, 0, 64, 0, 65, 1};
 short w105[] = {105, 22, 30, 0, 32, 0, 34, 0, 35, 1, 60, 0, 61, 0, 62, 0, 63, 0, 64, 1, 65, 0};
 short w104[] = {104, 20, 30, 0, 32, 1, 35, 1, 60, 0, 61, 0, 62, 0, 63, 1, 64, 0, 65, 0};
 short w103[] = {103, 20, 30, 1, 31, 1, 35, 1, 60, 0, 61, 0, 62, 1, 63, 0, 64, 0, 65, 0};
 short w102[] = {102, 22, 30, 1, 31, 0, 33, 0, 35, 1, 60, 0, 61, 1, 62, 0, 63, 0, 64, 0, 65, 0};
 short w101[] = {101, 22, 30, 1, 31, 0, 33, 1, 35, 1, 60, 1, 61, 0, 62, 0, 63, 0, 64, 0, 65, 0};
-//####XX_case_zeilen_XX
+// ENDE : ShortArrays
+// BEGINN : CaseZeilen
      case 106: {schalteEineWeichenStrasse(w106); break;}
      case 105: {schalteEineWeichenStrasse(w105); break;}
      case 104: {schalteEineWeichenStrasse(w104); break;}
      case 103: {schalteEineWeichenStrasse(w103); break;}
      case 102: {schalteEineWeichenStrasse(w102); break;}
      case 101: {schalteEineWeichenStrasse(w101); break;}
-//####XX_ENDE_XX
+// ENDE : CaseZeilen

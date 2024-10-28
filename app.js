@@ -25,13 +25,13 @@ async function main() {
   const code5 = await liefereCode("wr_03_code_ende.txt");
   const code2 = await liefereCodeAbschnittAusLayout(
     layoutCode,
-    "//####XX_short_arrays_XX",
-    "//####XX_case_zeilen_XX"
+    "// BEGINN : ShortArrays",
+    "// ENDE : ShortArrays"
   );
   const code4 = await liefereCodeAbschnittAusLayout(
     layoutCode,
-    "//####XX_case_zeilen_XX",
-    "//####XX_ENDE_XX"
+    "// BEGINN : CaseZeilen",
+    "// ENDE : CaseZeilen"
   );
   // hier ist der gesamte eingelese Code in korrekter Reihenfolge als Array
   const codeGesamtalsArray = code1

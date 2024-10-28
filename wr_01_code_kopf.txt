@@ -11,4 +11,5 @@ NmraDcc Dcc;
 
 #define OFFSET 4  // Roco 4 und Lenz 0
 #define SPALTEN 9
-// 0 ist abbiegen, 1 ist gerade aus
+
+// 0 ist abbiegen, 1 ist geradeaus

@@ -9,6 +9,7 @@ void setup() {
     Dcc.init(MAN_ID_DIY, 1, FLAGS_DCC_ACCESSORY_DECODER | FLAGS_OUTPUT_ADDRESS_MODE, 0);
 }
 //---------------------------------------------------------------------------------------
+
 // the loop routine runs over and over again forever:
 void loop() {
     XpressNet.receive();  //permernet update the library
@@ -22,9 +23,7 @@ void schalteEineWeiche(uint16_t adresse, uint8_t richtung) {
    // bei der 256 gab es Probleme, sogar schon bei der 255
    // und um 1 geringer also aus
    // DCC Adresse 3 wird ExpressNet Adresse 2 : adresse -1
-   // seltsam, 0 ist abbiegen und 1 ist gerade aus
-   // das drehe ich hier wieder richtig 0 ist geradeaus, 1 ist abbiegen
-   //richtung = (richtung == 0) ? 1 : 0; // ternärer Operator
+
    Weichestellen(0, adresse-1, richtung);
 }
 void schalteEineWeichenStrasse(short WeichenstrassenArray[]) {
@@ -33,9 +32,7 @@ void schalteEineWeichenStrasse(short WeichenstrassenArray[]) {
    }
 }
 
-
 // das hier kommt in das DCC notifyDccAccTurnoutOutput rein
-// vielleicht frisst das zuviele Resourcen, dann lieber if then else oder case hard-coden
 void schalteAlleWeichenStrassenEinerBestimmtenAdresse(uint16_t weichenstrassenadresse) {
    digitalWrite(GREEN_LED, LOW);
    digitalWrite(RED_LED, HIGH);

@@ -1,34 +1,32 @@
-import { setupFileInput } from "./utils_datei_einlesen.js";
-import { saveArrayAsTxt } from "./utils_datei_speichern.js";
-import { liefereCodeAbschnittAusLayout, liefereCode } from "./utils_funktionen.js";
+import * as UtilsDateiEinlesen from "./utils_datei_einlesen.js";
+import * as UtilsDateiSpeichern from "./utils_datei_speichern.js";
+import * as UtilsFunktionen from "./utils_funktionen.js";
+import * as EventListener from "./utils_eventlistener.js";
 
 // Eventlistener für den Abspeichern-Button
-document.getElementById("fileInput").addEventListener("click", function () {
-  // hier wird der ausgegraute BUTTON wieder nutzbar
-  document.getElementById("saveButton").disabled = false;
-});
+document.getElementById("fileInput").addEventListener("click", EventListener.funktion_01 );
 
 // Eventlistener für den Herunterladen-Button
-document.getElementById("saveButton").addEventListener("click", function () {
-  // hier wird der ausgegraute BUTTON wieder nutzbar
-  document.getElementById("saveButton").disabled = true;
-});
+document.getElementById("saveButton").addEventListener("click", EventListener.funktion_02 );
 
 async function main() {
   const gesCodeObj = document.querySelector(".derGanzeCode");
 
-  const layoutCode = await setupFileInput("fileInput", "output"); // Array von Zeilen speichern
+  const layoutCode = await UtilsDateiEinlesen.setupFileInput(
+    "fileInput",
+    "output"
+  ); // Array von Zeilen speichern
   console.log(layoutCode);
 
-  const code1 = await liefereCode("wr_01_code_kopf.txt");
-  const code3 = await liefereCode("wr_02_code_setup_loop.txt");
-  const code5 = await liefereCode("wr_03_code_ende.txt");
-  const code2 = await liefereCodeAbschnittAusLayout(
+  const code1 = await UtilsFunktionen.liefereCode("wr_01_code_kopf.txt");
+  const code3 = await UtilsFunktionen.liefereCode("wr_02_code_setup_loop.txt");
+  const code5 = await UtilsFunktionen.liefereCode("wr_03_code_ende.txt");
+  const code2 = await UtilsFunktionen.liefereCodeAbschnittAusLayout(
     layoutCode,
     "// BEGINN : ShortArrays",
     "// ENDE : ShortArrays"
   );
-  const code4 = await liefereCodeAbschnittAusLayout(
+  const code4 = await UtilsFunktionen.liefereCodeAbschnittAusLayout(
     layoutCode,
     "// BEGINN : CaseZeilen",
     "// ENDE : CaseZeilen"
@@ -40,7 +38,7 @@ async function main() {
     .concat(code4)
     .concat(code5);
   // hier ist der gesamte eingelese Code in korrekter Reihenfolge als String
-  const codeGesamtAlsString = codeGesamtalsArray.join("<br>");
+  //const codeGesamtAlsString = codeGesamtalsArray.join("<br>");
   // hier wird der codeGesamtAlsString ins das html-Ausgabe-Objekt geschrieben
   //gesCodeObj.innerHTML = codeGesamtAlsString;
   gesCodeObj.innerHTML = "Code erfolgreich erstellt.";
@@ -48,9 +46,10 @@ async function main() {
   // Weise meinArry zu.
   const meinArray = codeGesamtalsArray;
   // Event-Listener für den Button, um das Array als Datei zu speichern
+  
   const nameDownloadFile = "ArduinoCode_Weichenrouter.ino"; // hier kann man einen beliebigen Namen eintragen
   document.getElementById("saveButton").addEventListener("click", function () {
-    saveArrayAsTxt(meinArray, nameDownloadFile); // Verwende die importierte Funktion
+    UtilsDateiSpeichern.saveArrayAsTxt(meinArray, nameDownloadFile); // Verwende die importierte Funktion
   });
 }
 

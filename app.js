@@ -3,7 +3,7 @@ import * as UtilsDateiSpeichern from "./utils_datei_speichern.js";
 import * as UtilsFunktionen from "./utils_funktionen.js";
 import * as EventListener from "./utils_eventlistener.js";
 
-// Eventlistener für den Abspeichern-Button
+//Eventlistener für den Abspeichern-Button
 document.getElementById("fileInput").addEventListener("click", EventListener.funktion_01 );
 
 // Eventlistener für den Herunterladen-Button
